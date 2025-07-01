@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: aws-load-balancer-controller
-  namespace: kube-system
+  namespace: aws-load-balancer-controller
 spec:
   interval: 5m
   chart:
@@ -11,16 +11,15 @@ spec:
       version: "1.8.2"
       sourceRef:
         kind: HelmRepository
-        name: eks
+        name: alb-controller-repo
         namespace: flux-system
       interval: 1m
+      install:
+        crds: CreateReplace
   values:
     clusterName: piercuta-dev-eks-cluster  # Remplace par ton cluster
+    vpcId: vpc-0d65a931491568682 
     serviceAccount:
       create: false
       name: aws-load-balancer-controller-sa  # Le ServiceAccount qui porte le rôle IAM
-    region: eu-west-1
-    vpcId: vpc-0d07d2c93d41f6b1e  # Obligatoire
-    enableShield: false
-    enableWaf: false
-    enableWafv2: false
+    version: "1.8.2"

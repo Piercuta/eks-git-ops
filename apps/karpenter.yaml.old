@@ -1,19 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aws-load-balancer-controller
+  name: karpenter
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
-    repoURL: https://github.com/Piercuta/eks-git-ops.git
+    repoURL: https://github.com/Piercuta/eks-git-ops.git  # adapte avec ton repo
     targetRevision: main
-    path: infrastructure/ingress/aws-load-balancer-controller
+    path: cluster-config/karpenter
   destination:
     server: https://kubernetes.default.svc
-    namespace: aws-load-balancer-controller
+    namespace: karpenter
   syncPolicy:
     automated:
       prune: true
