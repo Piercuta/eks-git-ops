@@ -1,0 +1,31 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: karpenter
+  namespace: karpenter
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  install:
+    crds: createReplace
+  interval: 10m
+  chartRef:
+    kind: OCIRepository
+    name: karpenter
+    namespace: flux-system
+  values:
+    settings:
+      clusterName: "piercuta-dev-eks-cluster"
+      clusterEndpoint: "https://A016DF120F226BFBF474C988FF613494.sk1.eu-west-1.eks.amazonaws.com"
+    serviceAccount:
+      create: false
+      name: karpenter-sa
+    replicas: 1
+    controller:
+      resources:
+        requests:
+          cpu: 1
+          memory: 1Gi
+        limits:
+          cpu: 1
+          memory: 1Gi
