@@ -3,7 +3,7 @@ kind: EC2NodeClass
 metadata:
   name: default
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   role: "piercuta-dev-karpenter-node-role"
   amiSelectorTerms:
