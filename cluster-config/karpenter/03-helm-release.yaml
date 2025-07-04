@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "3"
 spec:
   install:
-    crds: createReplace
+    crds: CreateReplace
   interval: 10m
   chartRef:
     kind: OCIRepository
