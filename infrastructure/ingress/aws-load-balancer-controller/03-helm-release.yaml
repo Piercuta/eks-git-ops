@@ -18,7 +18,7 @@ spec:
         crds: CreateReplace
   values:
     clusterName: piercuta-dev-eks-cluster  # Remplace par ton cluster
-    vpcId: vpc-06af9e42839bc9c16
+    # vpcId: vpc-06af9e42839bc9c16
     serviceAccount:
       create: false
       name: aws-load-balancer-controller-sa  # Le ServiceAccount qui porte le rôle IAM
