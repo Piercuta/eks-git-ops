@@ -16,7 +16,7 @@ spec:
   values:
     settings:
       clusterName: "piercuta-dev-eks-cluster"
-      clusterEndpoint: "https://A016DF120F226BFBF474C988FF613494.sk1.eu-west-1.eks.amazonaws.com"
+      clusterEndpoint: "https://0E323CF229443B635E537E4B7A464A59.gr7.eu-west-1.eks.amazonaws.com"
     serviceAccount:
       create: false
       name: karpenter-sa
