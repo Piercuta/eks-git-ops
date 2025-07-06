@@ -13,6 +13,7 @@ spec:
     kind: OCIRepository
     name: karpenter
     namespace: flux-system
+    version: "1.5.0"
   values:
     settings:
       clusterName: "piercuta-dev-eks-cluster"
