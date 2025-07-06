@@ -3,6 +3,8 @@ kind: HelmRepository
 metadata:
   name: alb-controller-repo
   namespace: flux-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   interval: 5m
   url: https://aws.github.io/eks-charts

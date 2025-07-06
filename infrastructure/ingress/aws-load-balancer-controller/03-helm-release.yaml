@@ -3,6 +3,8 @@ kind: HelmRelease
 metadata:
   name: aws-load-balancer-controller
   namespace: aws-load-balancer-controller
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   interval: 5m
   chart:
