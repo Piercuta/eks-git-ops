@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: karpenter
-  namespace: karpenter
+  namespace: kube-system
   annotations:
     argocd.argoproj.io/sync-wave: "3"
 spec:
@@ -19,8 +19,8 @@ spec:
       # clusterEndpoint: "https://4499E6BFEAA0D4BCCD96C10D655309DE.gr7.eu-west-1.eks.amazonaws.com"
       interruptionQueue: ""
     serviceAccount:
-      create: false
-      name: karpenter-sa
+      create: true
+      name: karpenter
     replicas: 1
     controller:
       resources:

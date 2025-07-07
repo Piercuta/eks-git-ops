@@ -10,8 +10,18 @@ data:
       groups:
         - system:bootstrappers
         - system:nodes
+    - rolearn: arn:aws:sts::532673134317:assumed-role/piercuta-dev-karpenter-node-role
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
     - rolearn: arn:aws:iam::532673134317:role/piercuta-dev-eks-node-role
       username: system:node:{{EC2PrivateDNSName}}
       groups:
         - system:bootstrappers
         - system:nodes
+
+
+
+
+        
