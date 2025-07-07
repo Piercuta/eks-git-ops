@@ -13,11 +13,11 @@ spec:
     kind: OCIRepository
     name: karpenter
     namespace: flux-system
-    version: "1.5.0"
   values:
     settings:
       clusterName: "piercuta-dev-eks-cluster"
       # clusterEndpoint: "https://4499E6BFEAA0D4BCCD96C10D655309DE.gr7.eu-west-1.eks.amazonaws.com"
+      interruptionQueue: ""
     serviceAccount:
       create: false
       name: karpenter-sa
