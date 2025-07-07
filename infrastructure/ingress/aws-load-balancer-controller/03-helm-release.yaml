@@ -16,12 +16,11 @@ spec:
         name: alb-controller-repo
         namespace: flux-system
       interval: 1m
-      install:
-        crds: CreateReplace
+  install:
+    crds: CreateReplace    
   values:
     clusterName: piercuta-dev-eks-cluster  # Remplace par ton cluster
     vpcId: vpc-097ac9b96ecc1a6e3
     serviceAccount:
       create: false
       name: aws-load-balancer-controller-sa  # Le ServiceAccount qui porte le rôle IAM
-    version: "1.8.2"
