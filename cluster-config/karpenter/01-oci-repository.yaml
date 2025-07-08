@@ -4,12 +4,12 @@ metadata:
   name: karpenter
   namespace: flux-system
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   interval: 10m
   url: oci://public.ecr.aws/karpenter/karpenter
   ref:
-    semver: "=1.5.0"
+    semver: "=1.5.2"
   layerSelector:
     mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
     operation: copy

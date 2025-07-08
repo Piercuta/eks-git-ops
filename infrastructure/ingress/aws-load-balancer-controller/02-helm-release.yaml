@@ -4,7 +4,7 @@ metadata:
   name: aws-load-balancer-controller
   namespace: kube-system
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   interval: 5m
   chart:

@@ -5,6 +5,8 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+    # argocd.argoproj.io/hook: PostSync
+    # argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   project: default
   source:
@@ -13,7 +15,7 @@ spec:
     path: infrastructure/ingress/aws-load-balancer-controller
   destination:
     server: https://kubernetes.default.svc
-    namespace: aws-load-balancer-controller
+    namespace: kube-system
   syncPolicy:
     automated:
       prune: true

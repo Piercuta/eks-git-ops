@@ -4,7 +4,7 @@ metadata:
   name: karpenter
   namespace: kube-system
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   install:
     crds: CreateReplace
@@ -16,8 +16,7 @@ spec:
   values:
     settings:
       clusterName: "piercuta-dev-eks-cluster"
-      # clusterEndpoint: "https://4499E6BFEAA0D4BCCD96C10D655309DE.gr7.eu-west-1.eks.amazonaws.com"
-      interruptionQueue: ""
+      interruptionQueue: "piercuta-dev-eks-cluster"
     serviceAccount:
       create: true
       name: karpenter
