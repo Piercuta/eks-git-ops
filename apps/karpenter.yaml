@@ -19,7 +19,7 @@ spec:
         serviceAccount:
           create: true
           name: karpenter
-        replicas: 1
+        replicas: 2
         controller:
           resources:
             requests:
