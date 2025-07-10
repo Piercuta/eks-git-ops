@@ -5,14 +5,19 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-    # argocd.argoproj.io/hook: PostSync
-    # argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   project: default
   source:
-    repoURL: https://github.com/Piercuta/eks-git-ops.git
-    targetRevision: main
-    path: infrastructure/ingress/aws-load-balancer-controller
+    repoURL: https://aws.github.io/eks-charts
+    chart: aws-load-balancer-controller
+    targetRevision: 1.8.2
+    helm:
+      values: |
+        clusterName: piercuta-dev-eks-cluster
+        vpcId: vpc-047fc5b165ba67fc0
+        serviceAccount:
+          create: true
+          name: aws-load-balancer-controller
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
