@@ -7,19 +7,16 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
-  source:
-    repoURL: https://aws.github.io/eks-charts
+  sources:
+  - repoURL: 'https://aws.github.io/eks-charts'
     chart: aws-load-balancer-controller
     targetRevision: 1.8.2
     helm:
-      values: |
-        clusterName: "piercuta-dev-eks-cluster"
-        vpcId: "vpc-03875b7129aadd379"
-        serviceAccount:
-          create: true
-          name: "aws-load-balancer-controller"
-      # valueFiles: 
-      # - ./values.yaml
+      valueFiles:
+      - $values/apps/aws-load-balancer-controller/values.yaml
+  - repoURL: 'https://github.com/Piercuta/eks-git-ops.git'
+    targetRevision: main
+    ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
