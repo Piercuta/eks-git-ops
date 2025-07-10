@@ -9,3 +9,4 @@ stringData:
   name: karpenter-oci
   type: helm
   url: oci://public.ecr.aws/karpenter/karpenter
+  enableOCI: "true"

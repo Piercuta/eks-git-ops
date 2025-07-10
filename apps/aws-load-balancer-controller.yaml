@@ -14,7 +14,7 @@ spec:
     helm:
       values: |
         clusterName: piercuta-dev-eks-cluster
-        vpcId: vpc-047fc5b165ba67fc0
+        vpcId: vpc-03875b7129aadd379
         serviceAccount:
           create: true
           name: aws-load-balancer-controller
