@@ -4,13 +4,29 @@ metadata:
   name: karpenter
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   source:
-    repoURL: https://github.com/Piercuta/eks-git-ops.git  # adapte avec ton repo
-    targetRevision: main
-    path: cluster-config/karpenter
+    repoURL: oci://public.ecr.aws/karpenter/karpenter
+    targetRevision: 1.5.2
+    helm:
+      values: |
+        settings:
+          clusterName: "piercuta-dev-eks-cluster"
+          interruptionQueue: "piercuta-dev-eks-cluster"
+        serviceAccount:
+          create: true
+          name: karpenter
+        replicas: 1
+        controller:
+          resources:
+            requests:
+              cpu: 1
+              memory: 1Gi
+            limits:
+              cpu: 1
+              memory: 1Gi
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
