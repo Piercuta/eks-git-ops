@@ -11,10 +11,15 @@ spec:
     repoURL: https://aws.github.io/eks-charts
     chart: aws-load-balancer-controller
     targetRevision: 1.8.2
-    path: aws-loadbalancer-controller
     helm:
-      valueFiles: 
-        - values.yaml
+      values: |
+        clusterName: "piercuta-dev-eks-cluster"
+        vpcId: "vpc-03875b7129aadd379"
+        serviceAccount:
+          create: true
+          name: "aws-load-balancer-controller"
+      # valueFiles: 
+      #   - ./values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
