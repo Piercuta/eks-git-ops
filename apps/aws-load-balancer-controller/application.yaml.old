@@ -12,15 +12,14 @@ spec:
     chart: aws-load-balancer-controller
     targetRevision: 1.8.2
     helm:
-      # values: |
-      #   clusterName: "piercuta-dev-eks-cluster"
-      #   vpcId: "vpc-03875b7129aadd379"
-      #   serviceAccount:
-      #     create: true
-      #     name: "aws-load-balancer-controller"
-      valueFiles: 
-        - ./values.yaml
-      ignoreMissingValueFiles: true
+      values: |
+        clusterName: "piercuta-dev-eks-cluster"
+        vpcId: "vpc-03875b7129aadd379"
+        serviceAccount:
+          create: true
+          name: "aws-load-balancer-controller"
+      # valueFiles: 
+      # - ./values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system

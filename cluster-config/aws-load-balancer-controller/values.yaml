@@ -1,0 +1,5 @@
+clusterName: "piercuta-dev-eks-cluster"
+vpcId: "vpc-03875b7129aadd379"
+serviceAccount:
+  create: true
+  name: "aws-load-balancer-controller"
