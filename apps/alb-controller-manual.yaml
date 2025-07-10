@@ -13,7 +13,8 @@ spec:
     path: cluster-config/aws-load-balancer-controller
     helm:
       valueFiles:
-        - values.yaml  # ou un autre fichier de valeurs si tu veux en surcharger
+        - values.yaml
+        - values-override.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
