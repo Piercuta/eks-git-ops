@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: 'https://github.com/Piercuta/eks-git-ops.git'
     targetRevision: main
-    path: clusters/prod  # <--- ici on cible le dossier prod
+    path: cluster/prod  # <--- ici on cible le dossier prod
   syncPolicy:
     automated:
       prune: true
