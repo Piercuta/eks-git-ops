@@ -1,0 +1,5 @@
+resources:
+  - ./aws-auth.yaml
+  - ../../argocd/bootstrap.yaml
+  - ../../apps/infrastructure/karpenter/overlays/prod/
+  - ../../apps/infrastructure/aws-load-balancer-controller/base/
