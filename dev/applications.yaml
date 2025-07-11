@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aws-load-balancer-controller-dev
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  project: default
+  source:
+    repoURL: 'https://github.com/ton-repo.git'
+    targetRevision: main
+    path: dev/apps//infrastructure/aws-load-balancer-controller/base
+    directory:
+      recurse: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: karpenter-dev
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: karpenter
+  project: default
+  source:
+    repoURL: 'https://github.com/ton-repo.git'
+    targetRevision: main
+    path: dev/apps/infrastructure/karpenter/base
+    directory:
+      recurse: true
+---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: fastapi-dev
+#   namespace: fastapi
+# spec:
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: fastapi
+#   project: default
+#   source:
+#     repoURL: 'https://github.com/ton-repo.git'
+#     targetRevision: main
+#     path: apps/fastapi
+#     directory:
+#       recurse: true
