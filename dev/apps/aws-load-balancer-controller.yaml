@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aws-load-balancer-controller
+  name: aws-load-balancer-controller-dev
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "1"
@@ -13,7 +13,7 @@ spec:
     targetRevision: 1.8.2
     helm:
       valueFiles:
-      - $values/apps/infrastructure/aws-load-balancer-controller/values.yaml
+      - $values/dev/cluster/aws-load-balancer-controller/values.yaml
   - repoURL: 'https://github.com/Piercuta/eks-git-ops.git'
     targetRevision: main
     ref: values
