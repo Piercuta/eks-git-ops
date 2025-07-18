@@ -52,9 +52,7 @@ spec:
   source:
     repoURL: https://github.com/Piercuta/eks-git-ops.git
     targetRevision: main
-    path: infrastructure/aws-load-balancer-controller/
-    directory:
-      include: dev
+    path: infrastructure/aws-load-balancer-controller/dev
     kustomize:
       namespace: kube-system
   destination:

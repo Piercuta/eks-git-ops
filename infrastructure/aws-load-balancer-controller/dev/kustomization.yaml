@@ -18,4 +18,4 @@ patches:
     target:
       kind: Ingress
       name: argocd-ingress
-      namespace: argocd
+      namespace: kube-system
