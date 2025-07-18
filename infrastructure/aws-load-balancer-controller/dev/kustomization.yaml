@@ -10,10 +10,8 @@ helmCharts:
     namespace: kube-system
     valuesFile: alb-controller-values-cdk.yaml
 
-
 components:
-  - ../base/
-
+  - ../base
 
 patches:
   - path: patch-argocd-ingress.yaml
