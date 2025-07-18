@@ -9,3 +9,13 @@ helmCharts:
     includeCRDs: true
     namespace: kube-system
     valuesFile: alb-controller-values-cdk.yaml
+
+resources:
+  - ../base/argocd-ingress.yaml
+
+patches:
+  - path: patch-argocd-ingress.yaml
+    target:
+      kind: Ingress
+      name: argocd-ingress
+      namespace: argocd
