@@ -14,12 +14,12 @@ resources:
   - ../base
 
 patches:
-  - path: patch-argocd-ingress.yaml
+  - path: patches/patch-argocd-ingress.yaml
     target:
       kind: Ingress
       name: argocd-ingress
       namespace: argocd
-  - path: patch-aws-lb-syncwave.yaml
+  - path: patches/patch-aws-lb-syncwave.yaml
     target:
       kind: Deployment
       name: aws-load-balancer-controller
