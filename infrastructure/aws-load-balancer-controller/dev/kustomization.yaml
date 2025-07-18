@@ -5,7 +5,7 @@ helmCharts:
   - name: aws-load-balancer-controller
     repo: https://aws.github.io/eks-charts
     version: 1.8.2
-    releaseName: alb
+    releaseName: aws-load-balancer-controller
     includeCRDs: true
     namespace: kube-system
     valuesFile: alb-controller-values-cdk.yaml
