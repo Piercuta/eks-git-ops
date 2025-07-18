@@ -2,18 +2,16 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: fastapi-hpa
-  namespace: fastapi
+  namespace: fastapi-dev
   labels:
     app: fastapi
-    project: ${PROJECT_NAME}
-    env: ${ENVIRONMENT}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: fastapi-app
-  minReplicas: ${ASG_MIN_CAPACITY}
-  maxReplicas: ${ASG_MAX_CAPACITY}
+  minReplicas: 1
+  maxReplicas: 5
   metrics:
   - type: Resource
     resource:

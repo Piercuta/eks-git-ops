@@ -2,13 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fastapi-app
-  namespace: fastapi
+  namespace: fastapi-dev
   labels:
     app: fastapi
-    project: ${PROJECT_NAME}
-    env: ${ENVIRONMENT}
 spec:
-  replicas: ${ASG_DESIRED_CAPACITY}
+  replicas: 2
   selector:
     matchLabels:
       app: fastapi
@@ -16,8 +14,6 @@ spec:
     metadata:
       labels:
         app: fastapi
-        project: ${PROJECT_NAME}
-        env: ${ENVIRONMENT}
         piercuta.com/node-type: fastapi
     spec:
       nodeSelector:
@@ -25,38 +21,38 @@ spec:
       serviceAccountName: fastapi-sa
       containers:
       - name: fastapi
-        image: ${FASTAPI_IMAGE}
+        image: 532673134317.dkr.ecr.eu-west-1.amazonaws.com/services/ecs/fastapi_app:latest
         env:
         - name: ENV_NAME
-          value: "${ENV_NAME}"
+          value: "dev"
         - name: PROJECT_NAME
-          value: "${PROJECT_NAME}"
+          value: "piercuta"
         - name: POSTGRES_SERVER
-          value: "${POSTGRES_SERVER}"
+          value: "piercuta-dev-aurora-cluster.cluster-c36i2qm0y4yz.eu-west-1.rds.amazonaws.com"
         - name: POSTGRES_USER
-          value: "${POSTGRES_USER}"
+          value: "postgres"
         - name: FRONTEND_HOST
-          value: "${FRONTEND_HOST}"
+          value: "https://dev-frontend.piercuta.com"
         - name: AWS_REGION
-          value: "${AWS_REGION}"
+          value: "eu-west-1"
         - name: AWS_SECRET_ARN
-          value: "${AWS_SECRET_ARN}"
+          value: "arn:aws:secretsmanager:eu-west-1:532673134317:secret:rds!cluster-36c7cd9a-51ad-43b6-a2ac-685991d23c0a-pHqE2y"
         - name: POSTGRES_DB
-          value: "${POSTGRES_DB}"
+          value: "app"
         - name: POSTGRES_PORT
-          value: "${POSTGRES_PORT}"
+          value: "5432"
         - name: SECRET_KEY
-          value: "${SECRET_KEY}"
+          value: "Osa3ZuhC7d6ssbF4XmKtYlemuTdbefkPvuZgOCRTrLg"
         - name: FIRST_SUPERUSER
-          value: "${FIRST_SUPERUSER}"
+          value: "admin@example.com"
         - name: FIRST_SUPERUSER_PASSWORD
-          value: "${FIRST_SUPERUSER_PASSWORD}"
+          value: "Coucou123!"
         ports:
         - containerPort: 8000
         resources:
           requests:
-            cpu: ${CPU_CAPACITY}
-            memory: ${MEM_CAPACITY}
+            cpu: 1
+            memory: 1Gi
           limits:
-            cpu: ${CPU_CAPACITY}
-            memory: ${MEM_CAPACITY}
+            cpu: 1
+            memory: 1Gi

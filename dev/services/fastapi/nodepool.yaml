@@ -4,15 +4,11 @@ metadata:
   name: fastapi-node-pool
   labels:
     app: fastapi
-    env: ${ENV_NAME}
-    project: ${PROJECT_NAME}
 spec:
   template:
     metadata:
       labels:
         app: fastapi
-        env: ${ENV_NAME}
-        project: ${PROJECT_NAME}
         piercuta.com/node-type: fastapi
     spec:
       nodeClassRef:
@@ -35,9 +31,7 @@ spec:
         - key: karpenter.k8s.aws/instance-generation
           operator: Gt
           values: ["2"]
-      expireAfter: 720h # 30 * 24h = 720h
-      # kubelet:
-      #   failSwapOn: false
+      expireAfter: 720h
   limits:
     cpu: 1000
   disruption:

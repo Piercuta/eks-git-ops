@@ -1,9 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: fastapi
+  name: fastapi-dev
   labels:
     app: fastapi
-    project: ${PROJECT_NAME}
-    env: ${ENVIRONMENT}
     apiVersion: v1

@@ -7,19 +7,65 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
-  sources:
-  - repoURL: 'https://aws.github.io/eks-charts'
-    chart: aws-load-balancer-controller
-    targetRevision: 1.8.2
-    helm:
-      valueFiles:
-      - $values/dev/cluster/aws-load-balancer-controller/values.yaml
-  - repoURL: 'https://github.com/Piercuta/eks-git-ops.git'
-    targetRevision: main
-    ref: values
+  source:
+    repoURL: 'https://github.com/Piercuta/eks-git-ops.git'
+    path: dev/cluster/alb-kustomization
+    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: aws-load-balancer-controller-dev
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "1"
+# spec:
+#   project: default
+#   sources:
+#   - repoURL: 'https://aws.github.io/eks-charts'
+#     chart: aws-load-balancer-controller
+#     targetRevision: 1.8.2
+#     helm:
+#       valueFiles:
+#       - $values/dev/cluster/aws-load-balancer-controller/values.yaml
+#   - repoURL: 'https://github.com/Piercuta/eks-git-ops.git'
+#     targetRevision: main
+#     ref: values
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: kube-system
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aws-load-balancer-controller-dev
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Piercuta/eks-git-ops.git'
+    targetRevision: main
+    path: dev/cluster/alb-controller-chart
+    helm:
+      valueFiles:
+        - values.yaml  # Ton fichier de valeurs (ou un autre si besoin)
+        - values-override-cdk.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system  # Ou le namespace que tu veux pour ce chart
   syncPolicy:
     automated:
       prune: true

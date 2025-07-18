@@ -1,0 +1,6 @@
+serviceAccount:
+  create: true
+  name: karpenter
+settings:
+  clusterName: piercuta-dev-eks-cluster
+  interruptionQueue: piercuta-dev-eks-cluster

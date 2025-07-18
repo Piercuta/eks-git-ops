@@ -4,21 +4,19 @@ metadata:
   name: fastapi-node-class
   labels:
     app: fastapi
-    env: ${ENV_NAME}
-    project: ${PROJECT_NAME}
 spec:
-  role: ${KARPENTER_NODE_ROLE_NAME}
+  role: piercuta-dev-karpenter-node-role
   subnetSelectorTerms:
     - tags:
-        karpenter.sh/discovery-fastapi: ${CLUSTER_NAME}
+        karpenter.sh/discovery-fastapi: piercuta-dev-eks-cluster
   securityGroupSelectorTerms:
     - tags:
-        karpenter.sh/discovery-fastapi: ${CLUSTER_NAME}
+        karpenter.sh/discovery-fastapi: piercuta-dev-eks-cluster
   amiFamily: AL2023
   amiSelectorTerms:
     - alias: al2023@v20250620
   tags:
-    Name: ${PROJECT_NAME}-${ENV_NAME}-fastapi-node
+    Name: piercuta-dev-fastapi-node
     App: fastapi
-    Env: ${ENV_NAME}
+    Env: dev
     ManagedBy: karpenter

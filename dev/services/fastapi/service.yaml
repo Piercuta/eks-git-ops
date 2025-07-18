@@ -2,11 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: fastapi-service
-  namespace: fastapi
+  namespace: fastapi-dev
   labels:
     app: fastapi
-    project: ${PROJECT_NAME}
-    env: ${ENVIRONMENT}
 spec:
   type: ClusterIP
   selector:
