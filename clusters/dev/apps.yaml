@@ -1,6 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: aws-auth-config
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"  # le plus tôt possible
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Piercuta/eks-git-ops.git
+    targetRevision: main
+    path: clusters/config/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    # ❌ Ne surtout pas automatiser sans précaution
+    automated: {}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: argocd-bootstrap
   namespace: argocd
   annotations:
@@ -8,7 +28,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ton-org/repo-gitops
+    repoURL: https://github.com/Piercuta/eks-git-ops.git
     targetRevision: main
     path: infrastructure/base/argocd
     kustomize: {}
@@ -30,10 +50,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ton-org/repo-gitops
+    repoURL: https://github.com/Piercuta/eks-git-ops.git
     targetRevision: main
     path: infrastructure/dev
-    kustomize: {}
+    kustomize:
+      namespace: kube-system
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
