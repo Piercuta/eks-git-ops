@@ -3,9 +3,10 @@ kind: Kustomization
 
 helmCharts:
   - name: karpenter
-    repo: public.ecr.aws/karpenter
-    version: 1.5.2
     releaseName: karpenter
-    includeCRDs: true
     namespace: kube-system
     valuesFile: karpenter-values-cdk.yaml
+    version: 1.5.2
+    includeCRDs: true
+    # Ce champ permet d'utiliser un chart local
+    chartPath: ./chart/karpenter
