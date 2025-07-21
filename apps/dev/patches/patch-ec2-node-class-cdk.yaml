@@ -8,7 +8,7 @@ spec:
   role: piercuta-dev-karpenter-node-role
   securityGroupSelectorTerms:
   - tags:
-      karpenter.sh/discovery-fastapi: piercuta-dev-eks-cluster
+      karpenter.sh/discovery: piercuta-dev-eks-cluster
   subnetSelectorTerms:
   - tags:
-      karpenter.sh/discovery-fastapi: piercuta-dev-eks-cluster
+      karpenter.sh/discovery: piercuta-dev-eks-cluster
