@@ -1,0 +1,8 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fastapi-hpa
+  namespace: fastapi
+spec:
+  minReplicas: 1
+  maxReplicas: 5

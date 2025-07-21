@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: fastapi-app
+  namespace: fastapi
+spec:
+  template:
+    spec:
+      containers:
+      - name: fastapi
+        image: 532673134317.dkr.ecr.eu-west-1.amazonaws.com/services/ecs/fastapi_app:dev
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
