@@ -4,6 +4,7 @@ metadata:
   name: fastapi-app
   namespace: fastapi
 spec:
+  replicas: 1
   template:
     spec:
       containers:

@@ -14,10 +14,10 @@ spec:
     metadata:
       labels:
         app: fastapi
-        fastapi.com/node-type: fastapi
+        karpenter.sh/node-type: karpenter
     spec:
       nodeSelector:
-        fastapi.com/node-type: fastapi
+        karpenter.sh/node-type: karpenter
       serviceAccountName: fastapi-sa
       containers:
       - name: fastapi

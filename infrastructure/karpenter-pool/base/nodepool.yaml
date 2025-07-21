@@ -1,20 +1,20 @@
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
-  name: fastapi-node-pool
+  name: karpenter-node-pool
   labels:
-    app: fastapi
+    app: karpenter
 spec:
   template:
     metadata:
       labels:
-        app: fastapi
-        fastapi.com/node-type: fastapi
+        app: karpenter
+        karpenter.sh/node-type: karpenter
     spec:
       nodeClassRef:
         group: karpenter.k8s.aws
         kind: EC2NodeClass
-        name: fastapi-node-class
+        name: karpenter-node-class
       requirements:
         - key: kubernetes.io/arch
           operator: In
