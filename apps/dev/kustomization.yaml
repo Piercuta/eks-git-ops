@@ -5,11 +5,6 @@ resources:
   - ../base/fastapi
 
 patches:
-  - path: patches/patch-fastapi-ingress-cdk.yaml
-    target:
-      kind: Ingress
-      name: fastapi-ingress
-      namespace: fastapi
   - path: patches/patch-hpa-cdk.yaml
     target:
       kind: HorizontalPodAutoscaler
