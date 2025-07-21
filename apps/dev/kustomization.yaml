@@ -9,22 +9,22 @@ patches:
     target:
       kind: EC2NodeClass
       name: fastapi-node-class
-  - path: patches/patch-fastapi-ingress.yaml
+  - path: patches/patch-fastapi-ingress-cdk.yaml
     target:
       kind: Ingress
       name: fastapi-ingress
       namespace: fastapi
-  - path: patches/patch-hpa.yaml
+  - path: patches/patch-hpa-cdk.yaml
     target:
       kind: HorizontalPodAutoscaler
       name: fastapi-hpa
       namespace: fastapi
-  - path: patches/path-cm-cdk.yaml
+  - path: patches/patch-cm-cdk.yaml
     target:
       kind: ConfigMap
       name: fastapi-config
       namespace: fastapi
-  - path: patches/path-deployment-cdk.yaml
+  - path: patches/patch-deployment-cdk.yaml
     target:
       kind: Deployment
       name: fastapi-app
