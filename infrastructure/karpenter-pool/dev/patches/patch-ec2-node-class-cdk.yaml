@@ -7,7 +7,6 @@ metadata:
   name: karpenter-node-class
 spec:
   role: piercuta-dev-karpenter-node-role
-  tags:
   securityGroupSelectorTerms:
   - tags:
       karpenter.sh/discovery: piercuta-dev-eks-cluster
