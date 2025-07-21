@@ -31,7 +31,6 @@ spec:
     repoURL: https://github.com/Piercuta/eks-git-ops.git
     targetRevision: main
     path: infrastructure/argocd
-    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
