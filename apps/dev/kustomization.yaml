@@ -5,10 +5,6 @@ resources:
   - ../base/fastapi
 
 patches:
-  - path: patches/patch-ec2-node-class-cdk.yaml
-    target:
-      kind: EC2NodeClass
-      name: fastapi-node-class
   - path: patches/patch-fastapi-ingress-cdk.yaml
     target:
       kind: Ingress

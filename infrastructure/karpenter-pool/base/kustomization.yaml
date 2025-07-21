@@ -4,10 +4,3 @@ kind: Kustomization
 resources:
   - nodepool.yaml
   - ec2nodeclass.yaml
-
-# patches:
-#   - path: patch-aws-lb-syncwave.yaml
-#     target:
-#       kind: Deployment
-#       name: aws-load-balancer-controller
-#       namespace: kube-system

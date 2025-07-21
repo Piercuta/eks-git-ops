@@ -6,7 +6,7 @@ controller:
     requests:
       cpu: 1
       memory: 1Gi
-replicas: 2
+replicas: 1
 serviceAccount:
   create: true
   name: karpenter

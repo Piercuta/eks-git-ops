@@ -14,10 +14,10 @@ spec:
     metadata:
       labels:
         app: fastapi
-        karpenter.sh/node-type: karpenter
     spec:
       nodeSelector:
-        karpenter.sh/node-type: karpenter
+        # Important to use the node-type label to select the karpenter node pool
+        workload-type: default
       serviceAccountName: fastapi-sa
       containers:
       - name: fastapi

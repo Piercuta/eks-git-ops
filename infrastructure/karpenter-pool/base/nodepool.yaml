@@ -2,6 +2,7 @@ apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
   name: karpenter-node-pool
+  namespace: kube-system
   labels:
     app: karpenter
 spec:
@@ -9,7 +10,7 @@ spec:
     metadata:
       labels:
         app: karpenter
-        karpenter.sh/node-type: karpenter
+        workload-type: default
     spec:
       nodeClassRef:
         group: karpenter.k8s.aws
@@ -34,6 +35,7 @@ spec:
       expireAfter: 720h # 30 * 24h = 720h
       # kubelet:
       #   failSwapOn: false
+  consolidation:
   limits:
     cpu: 1000
   disruption:

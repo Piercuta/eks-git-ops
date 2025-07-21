@@ -6,8 +6,6 @@ resources:
   - deployment.yaml
   - ingress.yaml
   - hpa.yaml
-  - ec2nodeclass.yaml
-  - nodepool.yaml
   - namespace.yaml
   - service.yaml
   - serviceaccount.yaml
