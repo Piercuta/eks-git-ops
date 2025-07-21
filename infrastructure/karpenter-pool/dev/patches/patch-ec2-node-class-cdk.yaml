@@ -5,7 +5,7 @@ metadata:
     app: karpenter
   name: karpenter-node-class
 spec:
-  role: ${KARPENTER_NODE_ROLE_NAME}
+  role: piercuta-dev-karpenter-node-role
   securityGroupSelectorTerms:
   - tags:
       karpenter.sh/discovery: piercuta-dev-eks-cluster
