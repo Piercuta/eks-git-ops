@@ -1,8 +1,8 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
 metadata:
   name: fastapi-hpa
   namespace: fastapi
 spec:
-  minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: '5'
+  minReplicas: '1'
