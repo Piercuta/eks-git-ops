@@ -4,16 +4,16 @@ metadata:
   name: fastapi-app
   namespace: fastapi
 spec:
-  replicas: 3
+  replicas: ${DESIRED_REPLICAS}
   template:
     spec:
       containers:
-      - image: 532673134317.dkr.ecr.eu-west-1.amazonaws.com/services/ecs/fastapi_app:dev
-        name: fastapi
+      - name: fastapi
+        image: ${IMAGE_URL}
         resources:
-          limits:
-            cpu: 500m
-            memory: 512Mi
           requests:
-            cpu: 500m
-            memory: 512Mi
+            cpu: ${CPU_CAPACITY}
+            memory: ${MEM_CAPACITY}
+          limits:
+            cpu: ${CPU_CAPACITY}
+            memory: ${MEM_CAPACITY}
