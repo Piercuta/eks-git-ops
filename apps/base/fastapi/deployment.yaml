@@ -26,4 +26,7 @@ spec:
             name: fastapi-config
         ports:
         - containerPort: 8000
-
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 100%

@@ -6,10 +6,3 @@ metadata:
 spec:
   maxReplicas: 5
   minReplicas: 2
-  behavior:
-    scaleUp:
-      stabilizationWindowSeconds: 0
-      policies:
-        - type: Percent
-          value: 100
-          periodSeconds: 15

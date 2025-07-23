@@ -16,7 +16,4 @@ spec:
           requests:
             cpu: "2"
             memory: "750Mi"
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 100%
+
