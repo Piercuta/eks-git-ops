@@ -6,7 +6,6 @@ metadata:
   labels:
     app: fastapi
 spec:
-  # replicas: 2
   selector:
     matchLabels:
       app: fastapi
@@ -26,7 +25,4 @@ spec:
             name: fastapi-config
         ports:
         - containerPort: 8000
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 100%
+
