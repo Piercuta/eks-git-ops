@@ -4,5 +4,5 @@ metadata:
   name: fastapi-hpa
   namespace: fastapi
 spec:
-  maxReplicas: 50
-  minReplicas: 2
+  maxReplicas: 100
+  minReplicas: 10
