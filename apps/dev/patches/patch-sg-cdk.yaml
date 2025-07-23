@@ -4,6 +4,6 @@ metadata:
   name: fastapi-sg
   namespace: fastapi
 spec:
-  podSelector:
-    matchLabels:
-      sg: fastapi
+  securityGroups:
+    groupIds:
+      - sg-0e5c4f9d71b331b51
