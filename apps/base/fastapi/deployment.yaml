@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: fastapi
-        sg: fastapi
+        # sg: fastapi
     spec:
       nodeSelector:
         # Important to use the node-type label to select the karpenter node pool
