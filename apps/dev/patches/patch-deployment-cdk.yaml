@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-      - image: curlimages/curl:latest
+      - image: tiangolo/uvicorn-gunicorn-fastapi:python3.10
         name: fastapi
         resources:
           limits:
