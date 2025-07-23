@@ -1,0 +1,12 @@
+apiVersion: vpcresources.k8s.aws/v1beta1
+kind: SecurityGroupPolicy
+metadata:
+  name: fastapi-sg
+  namespace: fastapi
+spec:
+  podSelector:
+    matchLabels:
+      role: fastapi
+  securityGroups:
+    groupIds:
+      - sg-0e5c4f9d71b331b51
