@@ -6,4 +6,4 @@ metadata:
 spec:
   securityGroups:
     groupIds:
-    - ${SG_FASTAPI}
+    - sg-09afd1964104a9ba7
