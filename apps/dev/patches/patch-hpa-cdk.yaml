@@ -5,4 +5,4 @@ metadata:
   namespace: fastapi
 spec:
   maxReplicas: 5
-  minReplicas: 2
+  minReplicas: 1
