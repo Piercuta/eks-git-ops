@@ -36,3 +36,10 @@ spec:
         - key: karpenter.k8s.aws/instance-cpu
           operator: Gt
           values: ["1"]  # ✅ Minimum 2 vCPU pour éviter les trop petites instances
+  disruption:
+    budgets:
+    - nodes: 75% # ✅ 75% to avoid keeping few nodes on big instance type...
+      reasons:
+      - "Underutilized"
+      - "Empty"
+      - "Drifted"

@@ -35,7 +35,6 @@ spec:
       expireAfter: 720h # 30 * 24h = 720h
       # kubelet:
       #   failSwapOn: false
-  consolidation:
   limits:
     cpu: 1000
   disruption:
