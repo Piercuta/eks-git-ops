@@ -6,3 +6,6 @@ metadata:
 spec:
   maxReplicas: 50
   minReplicas: 1
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 30
