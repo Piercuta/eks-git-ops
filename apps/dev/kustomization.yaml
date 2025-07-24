@@ -20,8 +20,8 @@ patches:
       kind: Deployment
       name: fastapi-app
       namespace: fastapi
-  - path: patches/patch-sg-cdk.yaml
-    target:
-      kind: SecurityGroupPolicy
-      name: fastapi-sg
-      namespace: fastapi
+  # - path: patches/patch-sg-cdk.yaml
+  #   target:
+  #     kind: SecurityGroupPolicy
+  #     name: fastapi-sg
+  #     namespace: fastapi
