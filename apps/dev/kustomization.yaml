@@ -10,6 +10,11 @@ patches:
       kind: HorizontalPodAutoscaler
       name: fastapi-hpa
       namespace: fastapi
+  - path: patches/patch-hpa.yaml
+    target:
+      kind: HorizontalPodAutoscaler
+      name: fastapi-hpa
+      namespace: fastapi
   - path: patches/patch-cm-cdk.yaml
     target:
       kind: ConfigMap
