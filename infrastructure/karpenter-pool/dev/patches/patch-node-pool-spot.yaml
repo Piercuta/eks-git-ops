@@ -6,6 +6,7 @@ metadata:
 spec:
   template:
     spec:
+      terminationGracePeriod: 1m
       requirements:
         - key: kubernetes.io/arch
           operator: In
